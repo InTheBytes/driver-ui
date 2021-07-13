@@ -3,7 +3,7 @@ import {Box, Button, Container, Link, makeStyles, TextField, Typography, Grid} f
 import {useHistory} from "react-router-dom";
 import Axios from "axios";
 
-function Register(props) {
+function RegisterDriver(props) {
 
 	const history = useHistory();
 
@@ -19,8 +19,8 @@ function Register(props) {
 				firstName: evt.target.elements.fullname.value.split(" ")[0],
 				lastName: evt.target.elements.fullname.value.split(" ")[1],
 				role: {
-					roleId: 4,
-					roleName: "customer"
+					roleId: 3,
+					roleName: "driver"
 				},
 				"active": 1
 			}).then((response) => {
@@ -66,7 +66,7 @@ function Register(props) {
 					<Grid container spacing={2}>
 						<Grid item xs={12} md={12}>
 							<Typography component="h1" variant="h4" className={classes.header}>
-								Create a new account
+								Become a StackLunch Driver
 							</Typography>
 						</Grid>
 						<Grid item xs={12} md={6}>
@@ -212,10 +212,10 @@ function Register(props) {
 				</form>
 			</div>
 			<Box position="bottom">
-				Already have an account? <Link href="/login">Login</Link>
+				Already have an account? <Link href="/driverlogin">Login</Link>
 			</Box>
 		</Container>
 	);
 }
 
-export default Register;
+export default RegisterDriver;

@@ -3,7 +3,7 @@ import {Container, Typography, TextField, Button, Box, Link, makeStyles} from '@
 import Axios from "axios";
 import {useHistory} from "react-router-dom";
 
-function Login(props) {
+function DriverLogin(props) {
 
 	const history = useHistory();
 
@@ -16,7 +16,8 @@ function Login(props) {
 		}).then((response) => {
 			if (response.headers['authentication'].length > 0) {
 				props.setAuth(response.headers['authentication']);
-				history.push("/");
+				localStorage.setItem('activeName', evt.target.elements.username.value);
+				history.push("/driverhome");
 			} else {
 				console.error("Authentication error.");
 			}
@@ -49,7 +50,7 @@ function Login(props) {
 		<Container component="main" maxWidth="xs">
 			<div className={classes.paper}>
 				<Typography component="h1" variant="h4">
-					Login to StackLunch
+					Login as a Driver
 				</Typography>
 				<form className={classes.form} onSubmit={handleSubmit}>
 					<TextField
@@ -89,13 +90,13 @@ function Login(props) {
 				</form>
 			</div>
 			<Box position="bottom">
-				Don't have an account? <Link href="/register">Sign Up</Link>
+				Don't have an account? <Link href="/registerdriver">Become a Driver</Link>
 			</Box>
 			<Box position="bottom">
-				Not a customer? <Link href="/usertype">Log in as a different type of user</Link>
+				Not a driver? <Link href="/usertype">Log in as a different type of user</Link>
 			</Box>
 		</Container>
 	);
 }
 
-export default Login;
+export default DriverLogin;
