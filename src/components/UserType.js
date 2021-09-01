@@ -30,7 +30,7 @@ function UserType() {
 				color="primary"
 				size="large"
 				className={classes.submit}
-                href="/login"
+                href="https://stacklunch.com/login"
             >
 				Customer
 			</Button>
@@ -50,7 +50,7 @@ function UserType() {
 				color="primary"
 				size="large"
 				className={classes.submit}
-                href="https://www.google.com/"
+                href="https://manager.stacklunch.com"
             >
 				Manager
 			</Button>
@@ -60,7 +60,7 @@ function UserType() {
 				color="primary"
 				size="large"
 				className={classes.submit}
-                href="http://localhost:4200/stacklunch/login"
+                href="https://admin.stacklunch.com/#/login"
             >
 				Administrator
 			</Button>

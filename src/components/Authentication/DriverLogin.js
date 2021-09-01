@@ -10,7 +10,7 @@ function DriverLogin(props) {
 	function handleSubmit(evt) {
 		evt.preventDefault();
 
-		Axios.post("http://localhost:8080/login", {
+		Axios.post(`${process.env.REACT_APP_SL_API_URL}/user/login`, {
 			username: evt.target.elements.username.value,
 			password: evt.target.elements.password.value
 		}).then((response) => {
