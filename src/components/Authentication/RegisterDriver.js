@@ -11,7 +11,7 @@ function RegisterDriver(props) {
 		evt.preventDefault();
 
 		if (evt.target.elements.password.value === evt.target.elements.passwordConfirm.value && evt.target.elements.fullname.value.indexOf(" ") > 0) {
-			Axios.post("http://localhost:8080/user/register", {
+			Axios.post(`${process.env.REACT_APP_SL_API_URL}/user/register`, {
 				username: evt.target.elements.username.value,
 				password: evt.target.elements.password.value,
 				email: evt.target.elements.email.value,

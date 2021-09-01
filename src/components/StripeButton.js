@@ -9,17 +9,20 @@ const StripeButton = ({ price }) => {
   const onToken = (token) => {
     console.log(token);
     axios
-      .post("http://localhost:8080/payment/stripe", {
+      .post(`${process.env.REACT_APP_SL_API_URL}/payment/stripe`, {
         amount: stripePrice,
         token,
         currency: "USD", //Other currencies can be supported here optionally. USD, GBP, and EUR are in backend if we want to mess around with localization options.
-        userId: "1" //Add ID of logged-in user here. This demo page uses "1," the id of the macker account.
+        orderId: "000d7893-7833-4fc6-bf87-28e610c73ba3",
+        tip: 1
       })
       .then((response) => {
+        console.log("Response:");
         console.log(response);
         alert("payment success");
       })
       .catch((error) => {
+        console.log("Error:")
         console.log(error);
         alert("Payment failed");
       });
